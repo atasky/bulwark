@@ -11,6 +11,7 @@ import { Resource } from '../entity/Resource';
 import MockExpressResponse = require('mock-express-response');
 import MockExpressRequest = require('mock-express-request');
 import * as assessmentController from './assessment.controller';
+import { Jira } from '../entity/Jira';
 
 describe('Assessment Controller', () => {
   beforeEach(async () => {
@@ -18,7 +19,7 @@ describe('Assessment Controller', () => {
       type: 'sqlite',
       database: ':memory:',
       dropSchema: true,
-      entities: [Asset, Organization, File, Vulnerability, Assessment, User, ProblemLocation, Resource],
+      entities: [Asset, Organization, File, Vulnerability, Assessment, User, ProblemLocation, Resource, Jira],
       synchronize: true,
       logging: false,
       name: 'default'
@@ -77,5 +78,31 @@ describe('Assessment Controller', () => {
     });
     await assessmentController.deleteAssessmentById(request4, response4);
     expect(response4.statusCode).toBe(200);
+  });
+  test('get assessments by asset id', async () => {
+    const response = new MockExpressResponse();
+    const request = new MockExpressRequest({
+      params: {
+        id: 1
+      }
+    });
+    await assessmentController.getAssessmentsByAssetId(request, response);
+    expect(response.statusCode).toBe(200);
+    const response2 = new MockExpressResponse();
+    const request2 = new MockExpressRequest({
+      params: {
+        blah: 1
+      }
+    });
+    await assessmentController.getAssessmentsByAssetId(request2, response2);
+    expect(response2.statusCode).toBe(400);
+    const response3 = new MockExpressResponse();
+    const request3 = new MockExpressRequest({
+      params: {
+        id: 'abc'
+      }
+    });
+    await assessmentController.getAssessmentsByAssetId(request3, response3);
+    expect(response3.statusCode).toBe(400);
   });
 });

@@ -15,7 +15,7 @@ The project uses git as its version control system and GitHub as the central ser
 
 ### Branching model
 
-Bulwark is maintained in a simplified [Gitflow](https://jeffkreeftmeijer.com/git-flow/) fashion, where all active development happens on the develop branch while master is used to maintain stable versions. Tasks with higher complexity, prototypes, and experiments will occur in feature branches
+Bulwark is maintained in a simplified [Gitflow](https://jeffkreeftmeijer.com/git-flow/) fashion, where all active development happens on the develop branch while master is used to maintain stable versions. Tasks with higher complexity, prototypes, and experiments will occur in feature branches.
 
 ### Versioning
 
@@ -34,7 +34,7 @@ Any release from master will have a unique version automated by [standard-versio
 3. All Git commits within a PR must be conventional commits using [commitizen](https://github.com/commitizen/cz-cli) and enforced by [husky](https://github.com/typicode/husky)
    1. Run `$ npm run commit` when committing changes
 4. The code must comply to the configured TSLint and Sass Lint rules
-5. Open pull request on the `develop` branch of your fork
+5. Open pull request to target the `develop` branch
 
 ### Linting
 
@@ -44,4 +44,4 @@ npm run lint
 
 ### Testing
 
-All testing should following the guildline stated within the [Testing Documention](TESTING.md)
+All testing should adhere to the [testing guidelines](TESTING.md).
