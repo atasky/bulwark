@@ -23,8 +23,9 @@
     "tsc": "rimraf dist && tsc && npm start",
     "lint": "tslint --project . && cd frontend && npm run-script lint",
     "lint:fix": "tslint --fix --project . && cd frontend && npm run-script lint --fix=true",
-    "release": "standard-version",
-    "commit": "git cz"
+    "release": "standard-version --skip.commit",
+    "commit": "git cz",
+    "docsify:serve": "docsify serve docs"
   },
   "keywords": [
     "web security",
@@ -62,6 +63,7 @@
     "@types/jest": "^26.0.15",
     "babel-jest": "^26.6.3",
     "cz-conventional-changelog": "^3.3.0",
+    "docsify": "^4.11.6",
     "husky": "^4.3.0",
     "jest": "^26.6.3",
     "mock-express-request": "^0.2.2",

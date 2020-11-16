@@ -1,4 +1,4 @@
-<img width="350" src="./_media/logo.png">
+# Bulwark
 
 > An organizational asset and vulnerability management tool, with Jira integration, designed for generating application security reports.
 
